@@ -6,6 +6,7 @@ class vertex{
     this.child= new Array();
     this.x=x;
     this.y=y;
+    this.visited=false;
   }
 
   //method to add child of a vertex
