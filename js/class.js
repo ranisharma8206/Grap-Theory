@@ -4,6 +4,7 @@ class vertex{
     this.id=id;
     this.name=name;
     this.child= new Array();
+    this.edge = new Array();
     this.x=x;
     this.y=y;
     this.visited=false;
@@ -13,14 +14,19 @@ class vertex{
   addChild(v){
     this.child.push(v);
   }
+  addEdge(e){
+    this.edge.push(e);
+  }
 }
 
 class edge{
   //constructor takes source, destination and weight of the edge
-  constructor(source,dest,weight){
+  constructor(source,dest,weight,id){
     this.source=source;
     this.destination=dest;
     this.weight=weight;
+    this.visited=false;
+    this.id=id;
   }
 
 }
@@ -39,8 +45,9 @@ class graph{
   }
   //method to create the edge. It takes the id of source,destination,weight of edge
   createEdge(v1,v2,weight=1){
-    this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight));
+    this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,this.edges.length));
     this.vertices[v1].addChild(this.vertices[v2]);
+    this.vertices[v1].addEdge(this.edges[this.edges.length-1]);
 
   }
 
