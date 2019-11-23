@@ -12,6 +12,7 @@ g.createEdge(1,3);
 g.createEdge(1,4);
 g.createEdge(2,5);
 g.createEdge(6,2);
+g.createEdge(5,4);
 console.log(g);
 
 var cy = cytoscape({
@@ -50,6 +51,16 @@ var cy = cytoscape({
     },
     {
       selector: '.evisited',
+      style: {
+        'width': 3,
+        'line-color': 'green',
+        'curve-style' : 'bezier',
+        'target-arrow-color': '#ccc',
+        'target-arrow-shape': 'triangle'
+      }
+    },
+    {
+      selector: '.eAlreadyvisited',
       style: {
         'width': 3,
         'line-color': 'red',

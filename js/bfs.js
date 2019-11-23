@@ -22,12 +22,19 @@ function dobfs(graph){
         v[i].visited=true;
         cy.getElementById(v[i].id).addClass('visited');
         for(var j=0;j<graph.vertices[s].edge.length;j++){
-          graph.vertices[s].edge[j].visited=true;
-          cy.getElementById("e"+graph.vertices[s].edge[j].id).addClass('evisited');
+            graph.vertices[s].edge[j].visited=true;
+            cy.getElementById("e"+graph.vertices[s].edge[j].id).addClass('evisited');
         }
-
       }
-    }
+      else{
+        console.log("eAlreadyvisited");
+        for(var j=0;j<graph.vertices[s].edge.length;j++){
+          graph.vertices[s].edge[j].visited=true;
+          cy.getElementById("e"+graph.vertices[s].edge[j].id).addClass('eAlreadyvisited');
+        }
+      }
+      }
+
   }
   return false;
 }
