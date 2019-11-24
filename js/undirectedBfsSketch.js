@@ -1,18 +1,19 @@
-var g=new graph();
-g.createVertex("a",700,200);
-g.createVertex("b",500,400);
-g.createVertex("c",900,400);
-g.createVertex("d",400,600);
-g.createVertex("e",600,600);
-g.createVertex("d",800,600);
-g.createVertex("d",1000,600);
+var g=new graph("ug");
+g.createVertex("a",500,300);
+g.createVertex("b",300,500);
+g.createVertex("c",700,500);
+g.createVertex("d",100,700);
+g.createVertex("e",500,700);
+
 g.createEdge(0,1);
 g.createEdge(0,2);
-g.createEdge(1,3);
-g.createEdge(1,4);
-g.createEdge(2,5);
-g.createEdge(6,2);
-g.createEdge(5,4);
+g.createEdge(2,1);
+g.createEdge(2,4);
+g.createEdge(3,1);
+g.createEdge(3,4);
+
+
+
 console.log(g);
 
 var cy = cytoscape({
@@ -36,10 +37,8 @@ var cy = cytoscape({
       selector: 'edge',
       style: {
         'width': 3,
-        'line-color': '#ccc',
-        'curve-style' : 'bezier',
-        'target-arrow-color': '#ccc',
-        'target-arrow-shape': 'triangle'
+        'line-color': '#ccc'
+
       }
     },
     {
@@ -53,20 +52,14 @@ var cy = cytoscape({
       selector: '.evisited',
       style: {
         'width': 3,
-        'line-color': 'green',
-        'curve-style' : 'bezier',
-        'target-arrow-color': '#ccc',
-        'target-arrow-shape': 'triangle'
+        'line-color': 'green'
       }
     },
     {
       selector: '.eAlreadyvisited',
       style: {
         'width': 3,
-        'line-color': 'red',
-        'curve-style' : 'bezier',
-        'target-arrow-color': '#ccc',
-        'target-arrow-shape': 'triangle'
+        'line-color': 'red'
       }
     }
   ],

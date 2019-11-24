@@ -21,17 +21,10 @@ function dobfs(graph){
         q.enqueue(v[i].id);
         v[i].visited=true;
         cy.getElementById(v[i].id).addClass('visited');
-        for(var j=0;j<graph.vertices[s].edge.length;j++){
-            graph.vertices[s].edge[j].visited=true;
-            cy.getElementById("e"+graph.vertices[s].edge[j].id).addClass('evisited');
-        }
+        cy.getElementById("e"+""+s+","+v[i].id).addClass('evisited');
       }
       else{
-        console.log("eAlreadyvisited");
-        for(var j=0;j<graph.vertices[s].edge.length;j++){
-          graph.vertices[s].edge[j].visited=true;
-          cy.getElementById("e"+graph.vertices[s].edge[j].id).addClass('eAlreadyvisited');
-        }
+        cy.getElementById("e"+""+s+","+v[i].id).addClass('eAlreadyvisited');
       }
       }
 

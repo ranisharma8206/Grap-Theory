@@ -14,9 +14,9 @@ class vertex{
   addChild(v){
     this.child.push(v);
   }
-  addEdge(e){
-    this.edge.push(e);
-  }
+  // addEdge(e){
+  //   this.edge.push(e);
+  // }
 }
 
 class edge{
@@ -45,9 +45,15 @@ class graph{
   }
   //method to create the edge. It takes the id of source,destination,weight of edge
   createEdge(v1,v2,weight=1){
-    this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,this.edges.length));
-    this.vertices[v1].addChild(this.vertices[v2]);
-    this.vertices[v1].addEdge(this.edges[this.edges.length-1]);
+    if(this.type=="dg"){
+      this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,this.edges.length));
+      this.vertices[v1].addChild(this.vertices[v2]);
+    }
+    else{
+      this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,this.edges.length));
+      this.vertices[v1].addChild(this.vertices[v2]);
+      this.vertices[v2].addChild(this.vertices[v1]);
+    }
 
   }
 
@@ -70,7 +76,7 @@ class graph{
       var edge = {};
       edge.group = "edges";
       var data = {};
-      data.id = "e"+i;
+      data.id = "e"+""+this.edges[i].source.id+","+this.edges[i].destination.id;
       data.source = this.edges[i].source.id;
       data.target = this.edges[i].destination.id;
       edge.data = data;
