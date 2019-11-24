@@ -40,5 +40,3 @@ var start = function(){
     setTimeout(start,1000);
   }
 }
-
-ibfs(g,0);
