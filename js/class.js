@@ -14,9 +14,6 @@ class vertex{
   addChild(v){
     this.child.push(v);
   }
-  // addEdge(e){
-  //   this.edge.push(e);
-  // }
 }
 
 class edge{

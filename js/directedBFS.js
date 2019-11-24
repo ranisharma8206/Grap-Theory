@@ -42,4 +42,4 @@ var start = function(){
   }
 }
 
-ibfs(g,0);
+//ibfs(g,0);
