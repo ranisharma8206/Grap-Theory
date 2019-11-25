@@ -35,6 +35,7 @@ function dodfs(graph){
       v[k].visited = true;
       cy.getElementById(v[k].id).addClass('visited');
       cy.getElementById("e"+""+s+","+v[k].id).addClass('evisited');
+      k=0;
     }
   }
   return false;
