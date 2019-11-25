@@ -49,6 +49,13 @@ var cy = cytoscape({
       }
     },
     {
+      selector: '.backtracking',
+      style: {
+        'background-color': 'yellow'
+
+      }
+    },
+    {
       selector: '.evisited',
       style: {
         'width': 3,
