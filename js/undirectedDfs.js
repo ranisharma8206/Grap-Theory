@@ -59,6 +59,7 @@ var start = function(){
 }
 
 function set(){
-  idfs(g,0);
+  x = document.getElementsByName('textbox1')[0].value;
+  idfs(g,x);
   setTimeout(start,1000);
 }
