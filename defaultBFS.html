@@ -14,17 +14,51 @@
   </head>
   <body>
     <div class="container-fluid" style="padding:0; margin:0;">
-  <div class="row">
-    <div class="col-3" style="background-color:#043A40;height:100vh;">
-      <div>
-        Enter Node: <input type="text" name="textbox1" autocomplete="off"><br>
-        <button type="button" class="btn btn-primary" onclick="set()" >Start</button>
-        <button type="button" class="btn btn-primary" onclick="set()" >Default DFS</button>
-        <button type="button" class="btn btn-primary" onclick="set()" ></button>
-        <button type="button" onClick="refreshPage()">Refresh</button>
+      <div class="row" style="position:relative;">
+        <div class="col-3" style="background-color:#043A40;height:100vh;">
+          <div>
+            <p style="color:white;font-size:32px;font-weight: bold;position:absolute;top:10%; left:8%;">Breadth First Search Demo</p>
+          </div>
+
+          <div style="position:absolute; top:25%; left:25%;">
+          <div class="input-group" style=" margin-bottom:20px;">
+            <input type="text" name="textbox1" autocomplete="off" placeholder="Enter Node" class="form-control" aria-label="Text input with dropdown button">
+          </div>
+          <div style="position:relative;left:10%;">
+            <button type="button" class="btn btn-primary btn-lg" onclick="set()" style=" margin-bottom:20px; width:80%;" >Home</button><br>
+            <button type="button" class="btn btn-primary btn-lg" onclick="set()" style=" margin-bottom:20px;width:80%;">Start</button><br>
+            <button type="button" class="btn btn-primary btn-lg" onClick="refreshPage()" style=" margin-bottom:20px;width:80%;">Refresh</button><br>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style=" margin-bottom:20px;width:80%;">
+                Instructions
+            </button>
+            <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Instructions</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            To create a graph, double tab to add vertices. Then to add a edge between u,v ; tap u and then tap v. Add node to start the search and click Start button. To refresh the page tap Refreh. There is a home button as well to go back to the Home page!
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+    </div>
+  </div>
+</div>
+          </div>
       </div>
     </div>
-    <div class="col-9" style="background-color:#02425D; height:100vh;">
+    <div class="col-9" style="height:100vh;">
       <div id="cy" >
       </div>
 
