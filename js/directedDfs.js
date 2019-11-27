@@ -50,3 +50,8 @@ var start = function(){
     setTimeout(start,1000);
   }
 }
+function set(){
+  x = document.getElementsByName('textbox1')[0].value;
+  idfs(g,x);
+  setTimeout(start,1000);
+}
