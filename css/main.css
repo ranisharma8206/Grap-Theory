@@ -6,6 +6,6 @@ body {
   height: 800px;
   width: 800px;
   position: absolute;
-  left: 100px;
-  top: 100px;
+  left: 25%;
+  /* top: ; */
 }
