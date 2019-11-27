@@ -118,8 +118,9 @@ function addEdge(source,target){
 }
 $("#cy").dblclick(function(e){
 
-    var x = e.pageX - this.offsetLeft;
-    var y = e.pageY - this.offsetTop;
+    var offset = $(this).offset();
+    var x = (e.pageX - offset.left);
+    var y = (e.pageY - offset.top);
     console.log(x,y);
     addVertex(x,y);
 });

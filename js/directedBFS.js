@@ -43,3 +43,8 @@ var start = function(){
 }
 
 //ibfs(g,0);
+function set(){
+  x = document.getElementsByName('textbox1')[0].value;
+  ibfs(g,x);
+  setTimeout(start,1000);
+}
