@@ -13,7 +13,6 @@ function dodfs(graph){
   else{
     var v = graph.vertices[stack.peek()].child;
     var s = stack.peek();
-    //console.log("top element is:"+q.front());
 
     if(v.length == 0){
       console.log(stack.peek());
@@ -27,7 +26,6 @@ function dodfs(graph){
       k=0;
     }
     else if(v[k].visited){
-      //cy.getElementById("e"+""+s+","+v[k].id).addClass('eAlreadyvisited');
       k++;
     }
     else if(!v[k].visited){

@@ -1,7 +1,7 @@
 g=new graph("ug");
 
 g.createVertex("a",300,300);
-g.createVertex("b",300,500);
+g.createVertex("b",350,500);
 g.createVertex("c",700,500);
 g.createVertex("d",100,700);
 g.createVertex("e",500,700);
@@ -35,7 +35,7 @@ var cy = cytoscape({
       selector: 'edge',
       style: {
         'width': 3,
-        'line-color': '#ccc',
+        'line-color': 'black',
         'curve-style' : 'bezier'
       }
     },

@@ -21,7 +21,6 @@ function dobfs(graph){
         q.enqueue(v[i].id);
         v[i].visited = true;
         cy.getElementById(v[i].id).addClass('visited');
-            //graph.vertices[s].edge[j].visited=true;
             cy.getElementById("e"+""+s+","+v[i].id).addClass('evisited');
             cy.getElementById("e"+""+v[i].id+","+s).addClass('evisited');
       }

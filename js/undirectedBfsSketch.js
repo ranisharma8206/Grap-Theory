@@ -1,18 +1,5 @@
 g=new graph("ug");
 
-// g.createVertex("a",300,300);
-// g.createVertex("b",300,500);
-// g.createVertex("c",700,500);
-// g.createVertex("d",100,700);
-// g.createVertex("e",500,700);
-//
-// g.createEdge(0,1);
-// g.createEdge(0,2);
-// g.createEdge(2,1);
-// g.createEdge(2,4);
-// g.createEdge(3,1);
-// g.createEdge(3,4);
-// console.log(g);
 
 var cy = cytoscape({
 
@@ -35,7 +22,7 @@ var cy = cytoscape({
       selector: 'edge',
       style: {
         'width': 3,
-        'line-color': '#ccc',
+        'line-color': 'black',
         'curve-style' : 'bezier'
       }
     },

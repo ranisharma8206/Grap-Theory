@@ -72,7 +72,7 @@ var cy = cytoscape({
 cy.panningEnabled( false );
 cy.userPanningEnabled( false );
 
-//cy.getElementById('b').addClass('rani')
+
 function addVertex(x,y){
   var id= g.vertices.length;
   g.createVertex("vertex",x,y);
