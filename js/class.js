@@ -74,6 +74,7 @@ class graph{
       edge.group = "edges";
       var data = {};
       data.id = "e"+""+this.edges[i].source.id+","+this.edges[i].destination.id;
+      data.weight = this.edges[i].weight;
       data.source = this.edges[i].source.id;
       data.target = this.edges[i].destination.id;
       edge.data = data;

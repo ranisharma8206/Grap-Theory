@@ -4,7 +4,10 @@ function prim(g){
   var mst = new graph();;
   var explored = new Set();
   var edgeQueue = new PriorityQueue();
+  g.vertices[s.id].visited=true;
+  cy.getElementById(s.id).addClass('visited');
 
+  timer=1;
 
   while(explored.size != g.vertices.length ){
 
@@ -13,8 +16,7 @@ function prim(g){
     break;
   }
   explored.add(s);
-  g.vertices[s.id].visited=true;
-  cy.getElementById(s.id).addClass('visited');
+
   mst.vertices.push(s);
 
 
@@ -39,7 +41,10 @@ function prim(g){
         //mst.vertices.push(g.vertices[minEdge.from]);
         s=g.vertices[minEdge.source.id];
         mst.edges.push(minEdge);
-        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        setTimeout(colorEdge,timer*1000,minEdge);
+        timer=timer+2;
+        setTimeout(colorVertex,timer*1000,s);
+        timer=timer+2;
 
         break;
       }
@@ -48,7 +53,10 @@ function prim(g){
         //mst.vertices.push(g.vertices[minEdge.to]);
         s=g.vertices[minEdge.destination.id];
         mst.edges.push(minEdge);
-        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        setTimeout(colorEdge,timer*1000,minEdge);
+        timer=timer+2;
+        setTimeout(colorVertex,timer*1000,s);
+        timer=timer+2;
 
         break;
       }
@@ -57,12 +65,18 @@ function prim(g){
       if(!explored.has(g.vertices[minEdge.destination.id])){
         s=g.vertices[minEdge.destination.id];
         mst.edges.push(minEdge);
-        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        setTimeout(colorEdge,timer*1000,minEdge);
+        timer=timer+2;
+        setTimeout(colorVertex,timer*1000,s);
+        timer=timer+2;
         break;
       }else if(!explored.has(g.vertices[minEdge.source.id])){
         s=g.vertices[minEdge.source.id];
         mst.edges.push(minEdge);
-        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        setTimeout(colorEdge,timer*1000,minEdge);
+        timer=timer+2;
+        setTimeout(colorVertex,timer*1000,s);
+        timer=timer+2;
         break;
       }else{
         console.log("HEY RAAM, Yeh toh cut mei hai");
@@ -73,4 +87,13 @@ function prim(g){
 
 }
 return mst;
+}
+
+function colorEdge(edge){
+  cy.getElementById("e"+""+edge.source.id+","+edge.destination.id).addClass('evisited');
+}
+
+function colorVertex(v){
+  g.vertices[v.id].visited=true;
+  cy.getElementById(v.id).addClass('visited');
 }
