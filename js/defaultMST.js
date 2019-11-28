@@ -6,12 +6,12 @@ g.createVertex("c",700,500);
 g.createVertex("d",100,700);
 g.createVertex("e",500,700);
 
-g.createEdge(0,1);
-g.createEdge(0,2);
-g.createEdge(2,1);
-g.createEdge(2,4);
-g.createEdge(3,1);
-g.createEdge(3,4);
+g.createEdge(0,1,5);
+g.createEdge(0,2,3);
+g.createEdge(2,1,4);
+g.createEdge(2,4,8);
+g.createEdge(3,1,6);
+g.createEdge(3,4,2);
 console.log(g);
 
 var cy = cytoscape({

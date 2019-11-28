@@ -47,7 +47,7 @@ class graph{
       this.vertices[v1].addChild(this.vertices[v2]);
     }
     else{
-      this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,this.edges.length));
+      this.edges.push(new edge(this.vertices[v1],this.vertices[v2],weight,"e"+","+v1+","+v2));
       this.vertices[v1].addChild(this.vertices[v2]);
       this.vertices[v2].addChild(this.vertices[v1]);
     }

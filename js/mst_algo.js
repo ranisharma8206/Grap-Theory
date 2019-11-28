@@ -1,76 +1,76 @@
-function idfs(graph,node){
-  stack = new stack();
-  stack.push(node);
-  graph.vertices[node].visited=true;
-  cy.getElementById(node).addClass('visited');
+
+function prim(g){
+  var s = g.vertices[0];
+  var mst = new graph();;
+  var explored = new Set();
+  var edgeQueue = new PriorityQueue();
+
+
+  while(explored.size != g.vertices.length ){
+
+  console.log("ADDING "+s.id);
+  if(explored.has(s)){
+    break;
+  }
+  explored.add(s);
+  g.vertices[s.id].visited=true;
+  cy.getElementById(s.id).addClass('visited');
+  mst.vertices.push(s);
+
+
+  g.edges.forEach(edge => { if(edge.destination.id == s.id || edge.source.id == s.id){
+    console.log("ENQUEUE - >");
+    console.log(edge);
+    edgeQueue.enqueue(edge,edge.weight);}});
+  // ^^ add egdes from s to priorityQueue
+  var minEdge = null;
+
+
+  while(!edgeQueue.isEmpty()){
+
+    minEdge = edgeQueue.dequeue();
+    minEdge=minEdge.element;
+    console.log("DEQUEUE");
+    console.log(minEdge);
+    console.log(s.id);
+    if(minEdge.destination.id == s.id){
+      console.log("inside")
+      if(!explored.has(g.vertices[minEdge.source.id])){
+        //mst.vertices.push(g.vertices[minEdge.from]);
+        s=g.vertices[minEdge.source.id];
+        mst.edges.push(minEdge);
+        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+
+        break;
+      }
+    }else if(minEdge.source.id==s.id){
+      if(!explored.has(g.vertices[minEdge.destination.id])){
+        //mst.vertices.push(g.vertices[minEdge.to]);
+        s=g.vertices[minEdge.destination.id];
+        mst.edges.push(minEdge);
+        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+
+        break;
+      }
+    }else{
+      //This is a case where vertex is in cut but not selected.
+      if(!explored.has(g.vertices[minEdge.destination.id])){
+        s=g.vertices[minEdge.destination.id];
+        mst.edges.push(minEdge);
+        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        break;
+      }else if(!explored.has(g.vertices[minEdge.source.id])){
+        s=g.vertices[minEdge.source.id];
+        mst.edges.push(minEdge);
+        cy.getElementById("e"+""+minEdge.source.id+","+minEdge.destination.id).addClass('evisited');
+        break;
+      }else{
+        console.log("HEY RAAM, Yeh toh cut mei hai");
+      }
+    }
+  }
+
 
 }
-k=0;
-function dodfs(graph){
-  if(stack.isEmpty()){
-    window.alert("Refresh to start again or go back home!");
-    console.log("done");
-    return true;
-  }
-  else{
-    console.log(graph.vertices[0].visited);
-    var v = graph.vertices[stack.peek()].child;
-    var s = stack.peek();
-    console.log("top element is:"+stack.peek());
-    console.log("size of v is:" + v.length);
-    console.log("value of k is" + k);
-
-
-    if(v.length == 0){
-      console.log(stack.peek());
-      cy.getElementById(stack.peek()).addClass('backtracking');
-      stack.pop();
-    }
-    else if(k==v.length){
-      console.log(stack.peek());
-      cy.getElementById(stack.peek()).addClass('backtracking');
-      stack.pop();
-      k=0;
-    }
-
-    else if(v[k].visited){
-      //cy.getElementById("e"+""+s+","+v[k].id).addClass('eAlreadyvisited');
-      k++;
-    }
-    else if(!v[k].visited){
-      stack.push(v[k].id);
-      console.log("pusshed" + v[k].id);
-      v[k].visited = true;
-      cy.getElementById(v[k].id).addClass('visited');
-      cy.getElementById("e"+""+s+","+v[k].id).addClass('evisited');
-      cy.getElementById("e"+""+v[k].id+","+s).addClass('evisited');
-      k=0;
-    }
-  }
-  return false;
-}
-
-var start = function(){
-  if(dodfs(g)){
-
-  }
-  else{
-    console.log("starting again");
-    setTimeout(start,500);
-  }
-}
-
-function set(){
-  x = document.getElementsByName('textbox1')[0].value;
-  if(x == ""){
-    window.alert("Please Enter a node to start with!");
-  }
-  else if(x < g.vertices.length){
-    idfs(g,x);
-    setTimeout(start,1000);
-  }
-  else{
-    window.alert("Please Enter a valid node!");
-  }
-
+return mst;
 }
