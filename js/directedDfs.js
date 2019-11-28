@@ -47,7 +47,7 @@ var start = function(){
   }
   else{
     console.log("starting again");
-    setTimeout(start,1000);
+    setTimeout(start,500);
   }
 }
 function set(){
