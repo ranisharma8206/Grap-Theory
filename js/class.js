@@ -24,6 +24,7 @@ class edge{
     this.weight=weight;
     this.visited=false;
     this.id=id;
+    this.added=false;
   }
 
 }

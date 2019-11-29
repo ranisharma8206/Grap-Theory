@@ -1,6 +1,6 @@
+function prim(g,node){
+  g.vertices.forEach(vertex => { if(vertex.id==node){s = vertex;}});
 
-function prim(g){
-  var s = g.vertices[0];
   var mst = new graph();;
   var explored = new Set();
   var edgeQueue = new PriorityQueue();
@@ -96,4 +96,9 @@ function colorEdge(edge){
 function colorVertex(v){
   g.vertices[v.id].visited=true;
   cy.getElementById(v.id).addClass('visited');
+}
+
+function set(){
+  x = document.getElementsByName('textbox1')[0].value;
+  prim(g,x);
 }
