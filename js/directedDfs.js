@@ -8,6 +8,7 @@ function idfs(graph,node){
 k=0;
 function dodfs(graph){
   if(stack.isEmpty()){
+    window.alert("Refresh to start again or go back home!");
     return true;
   }
   else{
@@ -50,6 +51,15 @@ var start = function(){
 }
 function set(){
   x = document.getElementsByName('textbox1')[0].value;
-  idfs(g,x);
-  setTimeout(start,1000);
+  if(x == ""){
+    window.alert("Please Enter a node to start with!");
+  }
+  else if(x < g.vertices.length){
+    idfs(g,x);
+    setTimeout(start,1000);
+  }
+  else{
+    window.alert("Please Enter a valid node!");
+  }
+
 }

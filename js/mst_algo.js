@@ -86,6 +86,7 @@ function prim(g,node){
 
 
 }
+setTimeout(load_page,timer*1000);
 return mst;
 }
 
@@ -100,5 +101,14 @@ function colorVertex(v){
 
 function set(){
   x = document.getElementsByName('textbox1')[0].value;
-  prim(g,x);
+  if(x < g.vertices.length){
+    prim(g,x);
+  }
+  else{
+    window.alert("Please Enter a valid node!");
+  }
+}
+
+function load_page(){
+  window.alert("Refresh to start again or go back home!");
 }

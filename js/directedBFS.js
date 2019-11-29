@@ -8,6 +8,7 @@ function ibfs(graph,node){
 
 function dobfs(graph){
   if(q.isEmpty()){
+    window.alert("Refresh to start again or go back home!");
     return true;
   }
   else{
@@ -44,6 +45,14 @@ var start = function(){
 
 function set(){
   x = document.getElementsByName('textbox1')[0].value;
-  ibfs(g,x);
-  setTimeout(start,1000);
+  if(x == ""){
+    window.alert("Please Enter a node to start with!");
+  }
+  else if(x < g.vertices.length){
+    ibfs(g,x);
+    setTimeout(start,1000);
+  }
+  else{
+    window.alert("Please Enter a valid node!");
+  }
 }
