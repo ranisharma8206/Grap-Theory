@@ -1,4 +1,4 @@
-# Grap-Theory
+# Graph-Theory
 Animation of BFS,DFS,Minimum Spanning Tree
 
 #Programming Language used:
